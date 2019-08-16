@@ -15,24 +15,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // FOR_DEVELOPMENT();
+        FOR_DEVELOPMENT();
 
         hidestatusbar();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent delayIntent = new Intent(MainActivity.this,signup.class);
-                startActivity(delayIntent);
-                finish();
-            }
-        },SPLASH_TIME_OUT);
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent delayIntent = new Intent(MainActivity.this,signup.class);
+//                startActivity(delayIntent);
+//                finish();
+//            }
+//        },SPLASH_TIME_OUT);
 
     }
 
     private void FOR_DEVELOPMENT() {
 
-        Intent delayIntent = new Intent(MainActivity.this,login.class);
+        Intent delayIntent = new Intent(MainActivity.this,Post.class);
         startActivity(delayIntent);
         finish();
     }
