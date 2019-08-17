@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1031979145937",
+    "firebase_url": "https://robopost-1665e.firebaseio.com",
+    "project_id": "robopost-1665e",
+    "storage_bucket": "robopost-1665e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031979145937:android:5d6c63efd4972fa4",
+        "android_client_info": {
+          "package_name": "com.techolon.robopost"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031979145937-dj4r8b2669nnd1krsoa1560gkromfkmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techolon.robopost",
+            "certificate_hash": "7a282abeeedd97260f1cf9951e008442d245d096"
+          }
+        },
+        {
+          "client_id": "1031979145937-kj8r0l602lvbcj5si0cckmsv2hpn1ao6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATqc4WPbMSYycqFRJIiH8NubqLEdHYIg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031979145937-kj8r0l602lvbcj5si0cckmsv2hpn1ao6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
