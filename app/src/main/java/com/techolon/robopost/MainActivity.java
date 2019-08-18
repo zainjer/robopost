@@ -19,15 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
         hidestatusbar();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent delayIntent = new Intent(MainActivity.this,signup.class);
-                startActivity(delayIntent);
-                finish();
-            }
-        },SPLASH_TIME_OUT);
 
+
+        Boolean status = ProfileData.getLoggedIn();
+
+        if(status){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent delayIntent = new Intent(MainActivity.this,HomeActivity.class);
+                    startActivity(delayIntent);
+                    finish();
+                }
+            },SPLASH_TIME_OUT);
+        }
     }
 
     private void FOR_DEVELOPMENT() {
