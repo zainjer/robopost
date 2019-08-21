@@ -2,12 +2,15 @@ package com.techolon.robopost;
 
 import android.net.Uri;
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class ProfileData {
 
    private static String display_name = "development";
    private static String account_email;
    private static Uri display_picture_url;
    private static boolean LOGGED_IN;
+   private static FirebaseUser user;
 
 
     public static String getDisplay_name() {
@@ -39,5 +42,13 @@ public class ProfileData {
     }
     public static boolean getLoggedIn(){
         return LOGGED_IN;
+    }
+
+    public static FirebaseUser getUser() {
+        return user;
+    }
+
+    public static void setUser(FirebaseUser user) {
+        ProfileData.user = user;
     }
 }

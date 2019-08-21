@@ -21,7 +21,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         fab = findViewById(R.id.fab);
         displayName = findViewById(R.id.PersonName);
-        displayName.setText(ProfileData.getDisplay_name());
+
+        displayName.setText(ProfileData.getAccount_email());
+       // displayName.setText( ProfileData.getDisplay_name());
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

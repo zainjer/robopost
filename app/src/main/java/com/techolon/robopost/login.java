@@ -74,13 +74,33 @@ public class login extends AppCompatActivity {
 
     public void loginbtn(View view) {
 
-        if(email.getText().toString().equals("admin")&&pass.getText().toString().equals("admin")){
-            startActivity(new Intent(login.this, HomeActivity.class));
-        }
-        else{
-            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-        }
+        String p,e;
+        e = email.getText().toString();
+        p = pass.getText().toString();
+        
+        if(e.equals("")||p.equals("")){
+            Toast.makeText(this, "Error!\nEmpty feilds", Toast.LENGTH_SHORT).show();
+        }else {
+            mAuth.signInWithEmailAndPassword(e,p)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(login.this, "Signed-in", Toast.LENGTH_SHORT).show();
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                                startActivity(new Intent(login.this,HomeActivity.class));
+                                finish();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(login.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
 
+                            }
+
+                        }
+                    });
+        }
     }
 
     @Override
