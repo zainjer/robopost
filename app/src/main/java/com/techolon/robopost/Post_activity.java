@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.method.DateTimeKeyListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -32,10 +29,8 @@ import java.util.Calendar;
 
 public class Post_activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
+    //VARIABLES
     EditText post_title;
-
-
-
     EditText post_caption;
     TextView tvSetTime;
     Button btnSave;
@@ -43,6 +38,7 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
     Posts_Created postObject;
     String scheduledDateString,scheduledTimeString;
     private static final int PICK_IMAGE = 101;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +56,9 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
             @Override
             public void onClick(View v) {
                 postObject.title = post_title.getText().toString();
-
             }
         });
+
 
         tvSetTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +70,7 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
 
             }
         });
+
 
         ivAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,23 +93,6 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
         tvSetTime = findViewById(R.id.tvScheduleTime);
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        c.set(Calendar.MONDAY,month);
-        c.set(Calendar.YEAR, year);
-        scheduledDateString = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c.getTime());
-    }
-    @Override
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
-        c.set(Calendar.MINUTE,minute);
-        scheduledTimeString = ""+hourOfDay+":"+minute+"";
-        String temp = "[ "+scheduledTimeString+" - "+ scheduledDateString +" ]";
-        tvSetTime.setText(temp);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -144,4 +124,24 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
         startActivity(new Intent(Post_activity.this,login.class));
         finish();
     }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+        c.set(Calendar.MONDAY,month);
+        c.set(Calendar.YEAR, year);
+        scheduledDateString = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c.getTime());
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
+        c.set(Calendar.MINUTE,minute);
+        scheduledTimeString = ""+hourOfDay+":"+minute+"";
+        String temp = "[ "+scheduledTimeString+" - "+ scheduledDateString +" ]";
+        tvSetTime.setText(temp);
+    }
+
 }

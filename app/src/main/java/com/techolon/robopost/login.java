@@ -71,7 +71,10 @@ public class login extends AppCompatActivity {
             fblogin = findViewById(R.id.btnFblogin);
 
             //Google Sign-in object
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build();
 
             //Google signInClient object initialization
             mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
