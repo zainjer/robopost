@@ -4,8 +4,11 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
+
+import com.facebook.login.Login;
+
+import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,16 +18,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // FOR_DEVELOPMENT();
 
         hidestatusbar();
 
 
 FOR_DEVELOPMENT();
+        Boolean status = ProfileData.getLoggedIn();
 
-//        Boolean status = ProfileData.getLoggedIn();
-//
-//
+
 //            new Handler().postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
@@ -38,7 +39,7 @@ FOR_DEVELOPMENT();
 
     private void FOR_DEVELOPMENT() {
 
-        Intent delayIntent = new Intent(MainActivity.this,login.class);
+        Intent delayIntent = new Intent(MainActivity.this, login.class);
         startActivity(delayIntent);
         finish();
     }

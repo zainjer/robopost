@@ -147,12 +147,11 @@
 
         android:id="@+id/btnGoogleSignIn"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="googleSignIn"
         app:buttonSize="wide"
         app:colorScheme="dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,18 +160,35 @@
         app:layout_constraintTop_toBottomOf="@+id/tvsignup"
         app:layout_constraintVertical_bias="1.0" />
 
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:text="More Sign-in options"
+        app:layout_constraintBottom_toTopOf="@+id/btnFblogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvsignup"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btnFblogin"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:onClick="loginFb"
         app:layout_constraintBottom_toTopOf="@+id/btnGoogleSignIn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvsignup"
         app:layout_constraintVertical_bias="1.0" />
