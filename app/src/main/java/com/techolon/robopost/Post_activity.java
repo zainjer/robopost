@@ -20,6 +20,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.facebook.share.ShareApi;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.FileNotFoundException;
@@ -37,6 +40,7 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
     ImageView imgFb,imgTwt,imgInsta,ivAddImage;
     Posts_Created postObject;
     String scheduledDateString,scheduledTimeString;
+    Bitmap image;
     private static final int PICK_IMAGE = 101;
 
 
@@ -55,6 +59,13 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(Post_activity.this, "Trying", Toast.LENGTH_SHORT).show();
+                SharePhoto photo = new SharePhoto.Builder()
+                        .setBitmap(image)
+                        .build();
+                SharePhotoContent content = new SharePhotoContent.Builder()
+                        .addPhoto(photo)
+                        .build();
                 postObject.title = post_title.getText().toString();
             }
         });
@@ -104,6 +115,7 @@ public class Post_activity extends AppCompatActivity implements DatePickerDialog
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                image = selectedImage;
                 ivAddImage.setImageBitmap(selectedImage);
                 postObject.image_uri = imageUri;
             } catch (FileNotFoundException e) {
